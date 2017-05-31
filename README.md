@@ -1,12 +1,13 @@
-# introDropbox 
+# introDrocker 
 
 A tutorial is based on [Let’s Chat app](https://github.com/containers101/demochat) that was used to familiarize myself with Codefresh functionality.
 
 ## Example 
+
+We are going to take this []
 [![Let's Chat Greylock](https://codefresh.io/wp-content/uploads/2017/03/lets-chat.png)](https://github.com/containers101/demochats)
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/11.png)
-
 
 ## Overview 
 
