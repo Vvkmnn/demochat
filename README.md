@@ -90,18 +90,24 @@ Great, you  are running  your build for the first time!
 #### [x] Push your image to Docker registry
 A **Docker registry** is a service that holds Docker images, typically grouped together in a repository with the same image names, with generally unique alphanumeric tags. Sort of like how :octocat: Github works for `git` based repositories. 
 
-For this example, we will use the default Docker Registry: [Docker hub](https://hub.docker.com). Click on ___Repositories___, and then click on the ___Pipelines___ gear.
+For this example, we will use the default Docker Registry: [Docker hub](https://hub.docker.com). 
+
+In Codefresh, we click on ___Repositories___, and then click on the ___Pipelines___ gear.
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/19.png)
 
-Scroll down to ___Workflow___, and you will see a ___Push to Docker___ button. If you have set up your credentials, click ___Save___ at the bottom of the screen. Otherwise- click on the ___integration page___ link.
+Scroll down to ___Workflow___, and you will see a ___Push to Docker___ button. 
+
+If you have set up your credentials, click ___Save___ at the bottom of the screen. Otherwise- click on the ___integration page___ link.
 
 Write your User/Password info, and click ___Save___ to connect.
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/20.png)
 
+## Test
 
-## Unit test your image
+### [x] Unit test your image
+
 Let's head over to ___Piplines___ again.
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/19.png)
 
@@ -113,15 +119,17 @@ Let's click ___Save___, and ___Build___ to see it in action.
 
 Great- the date has been printed!
 
-![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/22.png)
+![Screenshot](http://i.imgur.com/11F0PjP.png)
  
  
 Now let's add a full composition that also contains mongo db.
 
+### Compose
+A **Docker composition** is pretty much what it sounds like; it is a tool for defining and running multiple Docker containers at once. With a single `docker-compose.yml` file, you can configure and start all of your application’s services (the database, the api, the ai server, etc.) with one command. 
 
-## Add composition
-
-Our Let's Chat app needs mongo in order to work, so let's add it!
+#### [x] Add composition
+m
+Our Let's Chat app needs a [MongoDB](https://www.mongodb.com) service in order to work, so let's add it!
 
 You can read more about compositions in our docs, but we will also walk through the process here :
 https://docs.codefresh.io/docs/create-composition
@@ -139,25 +147,33 @@ We are going to build our comp from scrath, so click ___Empty Composition___
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/04/empty_comp.png)
 
-Now we will click ___Add Service___ and add demochat, the port (50000), and mongo.
-Everything looks good here- so let's go ahead and launch by clicking the rocket ship...
+Now we will click ___Add Service___ to add demochat, and mongo. Then we'll click edit and type in the port (5000), because I couldn't find any other way to do it.
+
+#### [x] Launch composition
+
+Let's go ahead and launch by clicking the rocket ship...
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/04/savelaunch_final.png)
 
 
-Once it has completed, a link to our app will be displayed. Let's click it to see if it worked.
-
+Once it has completed, a link to our app will be displayed. Let's click it to see if it worked!
 
 ![Screenshot](https://codefresh.io/wp-content/uploads/2017/04/completed_in.png)
 
 Success! We have successfully launched a composition.
 
-![Screenshot](https://codefresh.io/wp-content/uploads/2017/03/10.png)
+![Screenshot](http://i.imgur.com/OYwdTG3.jpg)
+
+## Deploy
+#### [x] Deploy composition
+A **Docker swarm** is [a deployed Docker composition](https://docs.codefresh.io/docs/docker-swarm) much what it sounds like; it is a tool for defining and running multiple Docker containers at once. With a single `docker-compose.yml` file, you can configure and start all of your application’s services (the database, the api, the ai server, etc.) with one command. 
+
+Turns out, to deploy a Docker container, you need to pick a hosting provider. Given my needs are minimal, I'll be using Digital Ocean. I also think their shark logo is cool. 
+
+First thing we need to do is provision a Droplet. Luckily, this is super easy 
 
 
+`docker-compose up`
+`docker swarm init`
 
-
-
-
-[app]: https://github.com/containers101/demochat
-
+Let's go ahead and launch by clicking the rocket ship...
